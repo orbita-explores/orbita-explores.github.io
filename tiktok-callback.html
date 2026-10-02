@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orbita Publisher · TikTok login</title>
+<body style="font:16px system-ui,sans-serif;background:#f6f3ee;color:#1f1b16;display:grid;place-items:center;min-height:90vh;margin:0">
+<div style="max-width:440px;padding:24px;text-align:center">
+<h1 style="font-size:20px">Orbita Publisher</h1>
+<p id="m">Finishing TikTok login…</p>
+</div>
+<script>
+// TikTok devuelve el código de autorización a esta página pública; el panel corre en la PC del dueño (scripts/tiktok_panel.py).
+// No guarda ni muestra nada: reenvía code y state al panel local, que es el único que conoce el client secret.
+const q = location.search;
+if (new URLSearchParams(q).has("code")) location.replace("http://127.0.0.1:8765/callback" + q);
+else document.getElementById("m").textContent = "Login was cancelled or failed. You can close this tab.";
+</script></body></html>
